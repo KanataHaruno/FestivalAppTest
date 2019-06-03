@@ -1,10 +1,12 @@
 package com.example.festivalapptest;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuView;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -19,7 +21,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
-        loadFragment(new HomeFragment());
+        // Main activity starts MenuFragment, so that's the first screen
+        loadFragment(new MenuFragment());
     }
 
     // Method to load fragments
@@ -44,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Fragment fragment = null;
 
         switch (menuItem.getItemId()){
-            case R.id.title_map:
-                fragment = new HomeFragment();
-                break;
+//            case R.id.title_wallet:
+//                fragment = new HomeFragment();
+//                break;
 
             case R.id.title_menu:
                 fragment = new MenuFragment();

@@ -6,4 +6,7 @@
     <string name="title_map">Map</string>
     <string name="title_menu">Menu</string>
     <string name="title_friends">Friends</string>
+    <string name="title_checklist">Title</string>
+    <string name="description_checklist">Description</string>
+    <string name="price_checklist">Price</string>
 </resources>

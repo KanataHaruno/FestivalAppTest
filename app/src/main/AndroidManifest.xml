@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Wallet"></activity>
+        <activity android:name=".Checklist.ChecklistAdd"></activity>
+        <activity android:name=".Checklist.ChecklistActivity" />
+        <activity android:name=".Wallet.WalletAddMoney" />
+        <activity android:name=".Wallet.WalletActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
