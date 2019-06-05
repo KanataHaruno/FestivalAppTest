@@ -3,6 +3,7 @@ package com.example.festivalapptest;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ public class MenuFragment extends Fragment {
     ImageButton checklistButton;
     Intent intent;
     Intent setIntent;
+    MediaPlayer mp;
 
     @Nullable
     @Override
@@ -37,10 +39,13 @@ public class MenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         walletButton = (ImageButton) v.findViewById(R.id.wallet_button);
         walletButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(getActivity(), R.raw.coin);
+                mp.start();
                 intent = new Intent(getActivity(), WalletActivity.class);
                 startActivity(intent);
             }
@@ -50,6 +55,8 @@ public class MenuFragment extends Fragment {
         checklistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(getActivity(), R.raw.write);
+                mp.start();
                 intent = new Intent(getActivity(), ChecklistActivity.class);
                 startActivity(intent);
             }
