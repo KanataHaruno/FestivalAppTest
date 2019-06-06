@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,12 +26,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText etPassword;
     private TextView tvSignIn;
     private MediaPlayer mp;
+    private Animation fromBottom;
+    private TextView tvUserregister;
 
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
 
     private static final int MIN_LENGTH_PASSWORD = 6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         tvSignIn = findViewById(R.id.tv_signin);
+        tvUserregister = findViewById(R.id.tv_userregister);
+
+        // animation to animate the button
+        fromBottom = AnimationUtils.loadAnimation(this, R.anim.from_bottom);
+        btnRegister.setAnimation(fromBottom);
+        etEmail.setAnimation(fromBottom);
+        etPassword.setAnimation(fromBottom);
+        tvSignIn.setAnimation(fromBottom);
+        tvUserregister.setAnimation(fromBottom);
 
         btnRegister.setOnClickListener(this);
         tvSignIn.setOnClickListener(this);
@@ -118,6 +132,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        mp = MediaPlayer.create(this, R.raw.click);
+        mp.start();
         if (v == btnRegister){
             registerUser();
         }
